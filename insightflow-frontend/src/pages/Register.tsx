@@ -1,29 +1,29 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authService } from "../services/auth.service";
 import { useAuth } from "../context/AuthContext";
 
-export default function Login() {
+export default function Register() {
     const navigate = useNavigate();
     const { login } = useAuth();
 
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
 
     const handleSubmit = async (
         e: React.FormEvent
     ) => {
         e.preventDefault();
 
-        setError("");
         setLoading(true);
 
         try {
             const data =
-                await authService.login(
+                await authService.register(
+                    name,
                     email,
                     password
                 );
@@ -34,10 +34,9 @@ export default function Login() {
             );
 
             navigate("/");
-        } catch {
-            setError(
-                "Invalid email or password."
-            );
+        } catch (error) {
+            console.error(error);
+            alert("Registration failed");
         } finally {
             setLoading(false);
         }
@@ -73,32 +72,31 @@ export default function Login() {
 
                 <div>
                     <h2 className="text-5xl font-bold leading-tight">
-                        Transform data into
-                        actionable insights.
+                        Start tracking your
+                        business performance.
                     </h2>
 
                     <p className="mt-6 text-lg text-slate-400">
-                        Track events, monitor
-                        performance, and generate
-                        detailed reports from one
-                        dashboard.
+                        Create your account and gain
+                        access to powerful analytics,
+                        reports, and insights.
                     </p>
 
                     <div className="mt-10 space-y-4 text-slate-300">
                         <div>
-                            ✓ Advanced Analytics
+                            ✓ Analytics Dashboard
                         </div>
 
                         <div>
-                            ✓ Automated Reports
+                            ✓ Region Performance
                         </div>
 
                         <div>
-                            ✓ Regional Insights
+                            ✓ Detailed Reports
                         </div>
 
                         <div>
-                            ✓ Export CSV & PDF
+                            ✓ CSV Export
                         </div>
                     </div>
                 </div>
@@ -137,7 +135,7 @@ export default function Login() {
                                     text-slate-100
                                 "
                             >
-                                Welcome Back
+                                Create Account
                             </h2>
 
                             <p
@@ -146,24 +144,9 @@ export default function Login() {
                                     text-slate-400
                                 "
                             >
-                                Sign in to your account
+                                Get started with Insightful
                             </p>
                         </div>
-
-                        {error && (
-                            <div
-                                className="
-                                    mb-4
-                                    rounded-xl
-                                    border border-red-900/50
-                                    bg-red-950/30
-                                    p-3
-                                    text-red-400
-                                "
-                            >
-                                {error}
-                            </div>
-                        )}
 
                         <form
                             onSubmit={handleSubmit}
@@ -179,7 +162,43 @@ export default function Login() {
                                         text-slate-300
                                     "
                                 >
-                                    Email
+                                    Full Name
+                                </label>
+
+                                <input
+                                    value={name}
+                                    onChange={(e) =>
+                                        setName(
+                                            e.target.value
+                                        )
+                                    }
+                                    placeholder="John Doe"
+                                    className="
+                                        w-full
+                                        rounded-xl
+                                        border border-slate-700
+                                        bg-slate-800
+                                        px-4 py-3
+                                        text-slate-100
+                                        placeholder:text-slate-500
+                                        focus:outline-none
+                                        focus:ring-2
+                                        focus:ring-blue-500
+                                    "
+                                />
+                            </div>
+
+                            <div>
+                                <label
+                                    className="
+                                        mb-2
+                                        block
+                                        text-sm
+                                        font-medium
+                                        text-slate-300
+                                    "
+                                >
+                                    Email Address
                                 </label>
 
                                 <input
@@ -244,6 +263,7 @@ export default function Login() {
                             </div>
 
                             <button
+                                type="submit"
                                 disabled={loading}
                                 className="
                                     w-full
@@ -263,8 +283,8 @@ export default function Login() {
                                 "
                             >
                                 {loading
-                                    ? "Signing In..."
-                                    : "Sign In"}
+                                    ? "Creating Account..."
+                                    : "Create Account"}
                             </button>
                         </form>
 
@@ -276,16 +296,16 @@ export default function Login() {
                                 text-slate-400
                             "
                         >
-                            Don't have an account?{" "}
+                            Already have an account?{" "}
                             <Link
-                                to="/register"
+                                to="/login"
                                 className="
                                     font-semibold
                                     text-blue-400
                                     hover:underline
                                 "
                             >
-                                Register
+                                Sign In
                             </Link>
                         </div>
                     </div>

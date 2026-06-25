@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import {
+    Activity,
+    Globe,
+    TrendingUp,
+    DollarSign,
+} from "lucide-react";
 
 import KpiCard from "../components/dashboard/KpiCard";
 import EventsOverTimeChart from
@@ -80,21 +86,46 @@ export default function Dashboard() {
 
     if (!overview) {
         return (
-            <div>
-                Loading...
+            <div className="flex h-[50vh] items-center justify-center">
+                <div
+                    className="
+                    h-10 w-10
+                    animate-spin
+                    rounded-full
+                    border-4
+                    border-blue-600
+                    border-t-transparent
+                "
+                />
             </div>
         );
     }
-
     return (
-        <div className="space-y-8">
+        <div
+            className="
+        space-y-8
+        text-slate-900
+        dark:text-white
+    "
+        >
 
             <div>
-                <h1 className="text-3xl font-bold">
+                <h1
+                    className="
+            text-3xl font-bold
+            text-slate-900
+            dark:text-white
+        "
+                >
                     Dashboard
                 </h1>
 
-                <p className="text-slate-500">
+                <p
+                    className="
+            text-slate-500
+            dark:text-slate-400
+        "
+                >
                     Analytics Overview
                 </p>
             </div>
@@ -104,21 +135,28 @@ export default function Dashboard() {
                 <KpiCard
                     title="Total Events"
                     value={overview.total_events}
+                    change="12.4% this month"
+                    icon={<Activity size={20} />}
                 />
 
                 <KpiCard
                     title="Success Rate"
                     value={`${overview.success_rate}%`}
-                />
-
-                <KpiCard
-                    title="Average Value"
-                    value={`$${overview.average_value}`}
+                    change="4.2% increase"
+                    icon={<TrendingUp size={20} />}
                 />
 
                 <KpiCard
                     title="Top Region"
                     value={overview.top_region}
+                    icon={<Globe size={20} />}
+                />
+
+                <KpiCard
+                    title="Average Value"
+                    value={`$${overview.average_value}`}
+                    change="8.1% increase"
+                    icon={<DollarSign size={20} />}
                 />
 
             </div>

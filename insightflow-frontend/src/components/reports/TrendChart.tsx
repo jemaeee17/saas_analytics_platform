@@ -1,37 +1,20 @@
 import {
+    ResponsiveContainer,
     AreaChart,
     Area,
     XAxis,
     YAxis,
-    CartesianGrid,
     Tooltip,
-    ResponsiveContainer,
+    CartesianGrid,
 } from "recharts";
 
-import { useTheme } from "../../context/ThemeContext";
-
-interface TrendData {
-    date: string;
-    count: number;
-}
-
 interface Props {
-    data: TrendData[];
+    data: any[];
 }
 
-export default function TrendAnalysisChart({
+export default function TrendChart({
     data,
 }: Props) {
-    const { theme } = useTheme();
-
-    const isDark =
-        theme === "dark";
-
-    const totalEvents = data.reduce(
-        (sum, item) => sum + item.count,
-        0
-    );
-
     return (
         <div
             className="
@@ -40,102 +23,73 @@ export default function TrendAnalysisChart({
                 bg-white
                 p-6
                 shadow-sm
-                transition-all
-                hover:shadow-md
 
                 dark:border-slate-800
                 dark:bg-slate-900
             "
         >
-            {/* Header */}
+
             <div className="mb-6 flex items-center justify-between">
 
                 <div>
+
                     <h2
                         className="
-                            text-xl
+                            text-lg
                             font-semibold
                             text-slate-900
 
                             dark:text-white
                         "
                     >
-                        Trend Analysis
+                        Event Trends
                     </h2>
 
                     <p
                         className="
+                            mt-1
                             text-sm
                             text-slate-500
 
                             dark:text-slate-400
                         "
                     >
-                        Event activity over time
+                        Daily event activity over the selected period
                     </p>
+
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div
+                    className="
+                        rounded-full
+                        bg-green-100
+                        px-3 py-1
+                        text-xs
+                        font-medium
+                        text-green-700
 
-                    <div
-                        className="
-                            rounded-full
-                            bg-green-100
-                            px-3 py-1
-                            text-sm
-                            font-medium
-                            text-green-700
-
-                            dark:bg-green-900/30
-                            dark:text-green-400
-                        "
-                    >
-                        +12.4%
-                    </div>
-
-                    <div className="text-right">
-
-                        <p
-                            className="
-                                text-sm
-                                text-slate-500
-
-                                dark:text-slate-400
-                            "
-                        >
-                            Total Events
-                        </p>
-
-                        <p
-                            className="
-                                text-xl
-                                font-bold
-                                text-slate-900
-
-                                dark:text-white
-                            "
-                        >
-                            {totalEvents.toLocaleString()}
-                        </p>
-
-                    </div>
-
+                        dark:bg-green-900/30
+                        dark:text-green-400
+                    "
+                >
+                    Trending Up
                 </div>
 
             </div>
 
-            <div className="h-96">
+            <div className="h-[400px]">
 
                 <ResponsiveContainer
                     width="100%"
                     height="100%"
                 >
+
                     <AreaChart data={data}>
 
                         <defs>
 
                             <linearGradient
-                                id="trendGradient"
+                                id="colorEvents"
                                 x1="0"
                                 y1="0"
                                 x2="0"
@@ -152,24 +106,23 @@ export default function TrendAnalysisChart({
                                     stopColor="#2563eb"
                                     stopOpacity={0}
                                 />
+
                             </linearGradient>
 
                         </defs>
 
                         <CartesianGrid
-                            stroke={
-                                isDark
-                                    ? "#334155"
-                                    : "#e2e8f0"
-                            }
-                            strokeDasharray="4 4"
+                            strokeDasharray="3 3"
+                            stroke="#334155"
                             vertical={false}
                         />
 
                         <XAxis
                             dataKey="date"
                             tickFormatter={(value) =>
-                                new Date(value).toLocaleDateString(
+                                new Date(
+                                    value
+                                ).toLocaleDateString(
                                     "en-US",
                                     {
                                         month: "short",
@@ -178,48 +131,44 @@ export default function TrendAnalysisChart({
                                 )
                             }
                             tick={{
+                                fill: "#94a3b8",
                                 fontSize: 12,
-                                fill: isDark
-                                    ? "#94a3b8"
-                                    : "#64748b",
                             }}
                             axisLine={false}
                             tickLine={false}
                         />
 
                         <YAxis
+                            tick={{
+                                fill: "#94a3b8",
+                                fontSize: 12,
+                            }}
                             axisLine={false}
                             tickLine={false}
-                            tick={{
-                                fill: isDark
-                                    ? "#94a3b8"
-                                    : "#64748b",
-                            }}
                         />
 
                         <Tooltip
                             contentStyle={{
+                                backgroundColor: "#0f172a",
+                                border:
+                                    "1px solid #334155",
                                 borderRadius: "12px",
-                                border: isDark
-                                    ? "1px solid #475569"
-                                    : "1px solid #e2e8f0",
-                                backgroundColor: isDark
-                                    ? "#1e293b"
-                                    : "#ffffff",
-                                color: isDark
-                                    ? "#ffffff"
-                                    : "#0f172a",
+                                color: "#f8fafc",
                                 boxShadow:
-                                    "0 10px 25px rgba(0,0,0,.08)",
+                                    "0 10px 25px rgba(0,0,0,.35)",
+                            }}
+                            labelStyle={{
+                                color: "#f8fafc",
                             }}
                         />
 
                         <Area
                             type="monotone"
                             dataKey="count"
-                            stroke="#2563eb"
+                            stroke="#3b82f6"
                             strokeWidth={3}
-                            fill="url(#trendGradient)"
+                            fillOpacity={1}
+                            fill="url(#colorEvents)"
                         />
 
                     </AreaChart>
@@ -227,7 +176,7 @@ export default function TrendAnalysisChart({
                 </ResponsiveContainer>
 
             </div>
+
         </div>
     );
 }
-

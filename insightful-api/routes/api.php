@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\Api\ProfileController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -58,5 +59,19 @@ Route::prefix('analytics')->group(function () {
     Route::get('/categories', [AnalyticsController::class, 'categories']);
     Route::get('/filters', [AnalyticsController::class, 'filters']);
     Route::get('/events', [AnalyticsController::class, 'events']);
+
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::put(
+        '/profile',
+        [ProfileController::class, 'update']
+    );
+
+    Route::put(
+        '/profile/password',
+        [ProfileController::class, 'updatePassword']
+    );
 
 });

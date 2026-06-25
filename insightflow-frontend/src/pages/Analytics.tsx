@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 
 import { api } from "../lib/api";
+import {
+  Globe,
+  TrendingUp,
+  Target,
+  BarChart3,
+} from "lucide-react";
+
+import InsightCard from "../components/analytics/InsightCard";
 
 import KpiCard from "../components/dashboard/KpiCard";
 
@@ -10,6 +18,11 @@ import CategoryPerformanceTable from "../components/analytics/CategoryPerformanc
 
 import type { OverviewData } from "../types/analytics";
 
+type CategoryData = {
+  category: string;
+  count: number;
+};
+
 export default function Analytics() {
   const [overview, setOverview] =
     useState<OverviewData | null>(null);
@@ -18,7 +31,7 @@ export default function Analytics() {
     useState([]);
 
   const [categories, setCategories] =
-    useState([]);
+    useState<CategoryData[]>([]);
 
   const [trendData, setTrendData] =
     useState([]);
@@ -48,8 +61,17 @@ export default function Analytics() {
 
   if (!overview) {
     return (
-      <div>
-        Loading...
+      <div className="flex h-[50vh] items-center justify-center">
+        <div
+          className="
+                    h-10 w-10
+                    animate-spin
+                    rounded-full
+                    border-4
+                    border-blue-600
+                    border-t-transparent
+                "
+        />
       </div>
     );
   }
@@ -58,11 +80,26 @@ export default function Analytics() {
     <div className="space-y-8">
 
       <div>
-        <h1 className="text-3xl font-bold">
+        <h1
+          className="
+            text-3xl
+            font-bold
+
+            text-slate-900
+
+            dark:text-white
+        "
+        >
           Analytics
         </h1>
 
-        <p className="text-slate-500">
+        <p
+          className="
+            text-slate-500
+
+            dark:text-slate-400
+        "
+        >
           Detailed performance insights
         </p>
       </div>
@@ -88,6 +125,39 @@ export default function Analytics() {
         <KpiCard
           title="Top Region"
           value={overview.top_region}
+        />
+
+      </div>
+
+      {/* Insight Cards */}
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+
+        <InsightCard
+          title="Top Region"
+          value={overview.top_region}
+          description="Region generating the highest event volume."
+          icon={<Globe size={22} />}
+        />
+
+        <InsightCard
+          title="Top Category"
+          value={categories[0]?.category ?? "N/A"}
+          description="Most active category this period."
+          icon={<BarChart3 size={22} />}
+        />
+
+        <InsightCard
+          title="Success Trend"
+          value="+4.2%"
+          description="Success rate improved compared to last month."
+          icon={<TrendingUp size={22} />}
+        />
+
+        <InsightCard
+          title="Performance"
+          value="Strong"
+          description="Overall analytics performance remains healthy."
+          icon={<Target size={22} />}
         />
 
       </div>
