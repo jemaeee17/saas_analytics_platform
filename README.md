@@ -138,6 +138,49 @@ DARK MODE
 SCREENSHOTS
 
 - DASHBOARD
+("./assets/dashboard_screenshots/Dashboard_screenshot.png")
+("./assets/dashboard_screenshots/Dashboard_screenshot_02.png")
+("./assets/dashboard_screenshots/Dashboard_screenshot_03.png")
+("./assets/dashboard_screenshots/Dashboard_screenshot_04.png")
+
+- ANALYTICS
+("./assets/analytics_screenshots/Analytics_screenshots_01.png")
+("./assets/analytics_screenshots/Analytics_screenshots_02.png")
+("./assets/analytics_screenshots/Analytics_screenshots_03.png")
+
+- REPORTS
+("./assets/reports_screenshots/Reports_screenshots_01.png")
+("./assets/reports_screenshots/Reports_screenshots_02.png")
+("./assets/reports_screenshots/Reports_screenshots_03.png")
+("./assets/reports_screenshots/Reports_screenshots_04.png")
+
+- SETTINGS
+("./assets/settings_screenshots/Settings_screenshot_01.png")
+("./assets/settings_screenshots/Settings_screenshot_02.png")
+("./assets/settings_screenshots/Settings_screenshot_03.png")
+("./assets/settings_screenshots/Settings_screenshot_04.png")
+
+- AUTH
+("./assets/auth_screenshots/Login.png")
+("./assets/auth_screenshots/Register.png")
+
+FUTURE IMPROVEMENTS
+- Role Based Access Control
+- Real-Time Analytics
+- WebSocket Integration
+- Advanced Filtering
+- Scheduled Reports
+- Email Notifications
+- Multi-Tenant Support
+- AI Insights
+- Data Forecasting
+
+AUTHOR 
+- Jemae Lyn Bandiola
+
+LinkedIn: 
+www.linkedin.com/in/jemae-lyn-bandiola-3ba2693b6
+
   
 
 
