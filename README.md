@@ -129,6 +129,15 @@ backend/
 |      |── routes/
 |______ resources/
 
-INSTALLATION
+DARK MODE
+- The application includes custom Theme Context implementation with support for:
+  * Dark Mode
+  * Light Mode
+  * System Preference Detection
+    
+SCREENSHOTS
+
+- DASHBOARD
+  
 
 
