@@ -5,43 +5,35 @@ namespace Database\Factories;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends Factory<Event>
- */
 class EventFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            'event_name' => fake()->randomElement([
+            'event_name' => $this->faker->randomElement([
                 'page_view',
                 'signup',
                 'purchase',
                 'report_generated'
             ]),
 
-            'event_date' => fake()->dateTimeBetween('-90 days', 'now'),
+            'event_date' => $this->faker->dateTimeBetween('-90 days', 'now'),
 
-            'region' => fake()->randomElement([
+            'region' => $this->faker->randomElement([
                 'Asia',
                 'Europe',
                 'North America',
                 'South America'
             ]),
 
-            'category' => fake()->randomElement([
+            'category' => $this->faker->randomElement([
                 'Sales',
                 'Marketing',
                 'Product',
                 'Support'
             ]),
 
-            'status' => fake()->randomElement([
+            'status' => $this->faker->randomElement([
                 'Completed',
                 'Completed',
                 'Completed',
@@ -51,10 +43,13 @@ class EventFactory extends Factory
                 'Failed',
             ]),
 
-            'value' => fake()->randomFloat(2, 10, 1000),
+            'value' => $this->faker->randomFloat(2, 10, 1000),
 
             'metadata' => [
-                'source' => fake()->randomElement(['web', 'mobile']),
+                'source' => $this->faker->randomElement([
+                    'web',
+                    'mobile',
+                ]),
             ],
         ];
     }
