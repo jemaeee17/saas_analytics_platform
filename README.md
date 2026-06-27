@@ -1,6 +1,41 @@
 Insightful - SaaS Analytics Dashboard
 - A modern full-stack analytics dashboard built with Laravel and React that provides real-time business insights, event tracking, reporting, and user management.
 
+LIVE DEMO
+- FRONTEND
+  [Live Demo](https://saas-analytics-platform-kappa.vercel.app)
+- BACKEND
+  [Live Demo](https://saas-analytics-platform.onrender.com)
+
+SCREENSHOTS
+- DASHBOARD
+  
+- ![Dashboard Screenshot 1](./assets/dashboard_screenshots/Dashboard_screenshot.png)
+- ![Dashboard Screenshot 2](./assets/dashboard_screenshots/Dashboard_screenshot_02.png)
+- ![Dashboard Screenshot 3](./assets/dashboard_screenshots/Dashboard_screenshot_03.png)
+- ![Dashboard Screenshot 4](./assets/dashboard_screenshots/Dashboard_screenshot_04.png)
+
+- ANALYTICS
+- ![Analytics Screenshot 1](./assets/analytics_screenshots/Analytics_screenshots_01.png)
+- ![Analytics Screenshot 2](./assets/analytics_screenshots/Analytics_screenshots_02.png)
+- ![Analytics Screenshot 3](./assets/analytics_screenshots/Analytics_screenshots_03.png)
+
+- REPORTS
+- ![Reports Screenshot 1](./assets/reports_screenshots/Reports_screenshots_01.png)
+- ![Reports Screenshot 2](./assets/reports_screenshots/Reports_screenshots_02.png)
+- ![Reports Screenshot 3](./assets/reports_screenshots/Reports_screenshots_03.png)
+- ![Reports Screenshot 4](./assets/reports_screenshots/Reports_screenshots_04.png)
+
+- SETTINGS
+- ![Settings Screenshot 1](./assets/settings_screenshots/Settings_screenshot_01.png)
+- ![Settings Screenshot 2](./assets/settings_screenshots/Settings_screenshot_02.png)
+- ![Settings Screenshot 3](./assets/settings_screenshots/Settings_screenshot_03.png)
+- ![Settings Screenshot 4](./assets/settings_screenshots/Settings_screenshot_04.png)
+
+- AUTH
+- ![Auth Screenshot 1](./assets/auth_screenshots/Login.png)
+- ![Auth Screenshot 2](./assets/auth_screenshots/Register.png)
+  
 FEATURES
 - AUTHENTICATION AND SECURITY
   * User Registrattion
@@ -135,35 +170,6 @@ DARK MODE
   * Light Mode
   * System Preference Detection
     
-SCREENSHOTS
-
-- DASHBOARD
-("./assets/dashboard_screenshots/Dashboard_screenshot.png")
-("./assets/dashboard_screenshots/Dashboard_screenshot_02.png")
-("./assets/dashboard_screenshots/Dashboard_screenshot_03.png")
-("./assets/dashboard_screenshots/Dashboard_screenshot_04.png")
-
-- ANALYTICS
-("./assets/analytics_screenshots/Analytics_screenshots_01.png")
-("./assets/analytics_screenshots/Analytics_screenshots_02.png")
-("./assets/analytics_screenshots/Analytics_screenshots_03.png")
-
-- REPORTS
-("./assets/reports_screenshots/Reports_screenshots_01.png")
-("./assets/reports_screenshots/Reports_screenshots_02.png")
-("./assets/reports_screenshots/Reports_screenshots_03.png")
-("./assets/reports_screenshots/Reports_screenshots_04.png")
-
-- SETTINGS
-("./assets/settings_screenshots/Settings_screenshot_01.png")
-("./assets/settings_screenshots/Settings_screenshot_02.png")
-("./assets/settings_screenshots/Settings_screenshot_03.png")
-("./assets/settings_screenshots/Settings_screenshot_04.png")
-
-- AUTH
-("./assets/auth_screenshots/Login.png")
-("./assets/auth_screenshots/Register.png")
-
 FUTURE IMPROVEMENTS
 - Role Based Access Control
 - Real-Time Analytics
