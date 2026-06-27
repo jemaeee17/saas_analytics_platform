@@ -1,11 +1,4 @@
-import axios from "axios";
-
-const api = axios.create({
-    baseURL: "http://localhost:8000/api/analytics",
-    headers: {
-        Accept: "application/json",
-    },
-});
+import { api } from "../lib/api";
 
 export const analyticsService = {
     getOverview: async (range: string) => {
