@@ -13,8 +13,12 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
+        echo "Seeding Events...\n";
+        
         Event::factory()
             ->count(1000)
             ->create();
+        
+        echo "Finished creating events.\n";
     }
 }
