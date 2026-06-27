@@ -7,6 +7,12 @@ LIVE DEMO
 - BACKEND
   [Live Demo](https://saas-analytics-platform.onrender.com)
 
+DEMO ACCOUNT
+- Email = harrypotter@gmail.com
+- Password = harry12345
+- The dashboard is preloaded with over 1000 generated sample events for analytics, reports, charts, and business intelligence demonstrations.
+- Alternatively, you can create your own account using the Register page.
+
 SCREENSHOTS
 - DASHBOARD
   
